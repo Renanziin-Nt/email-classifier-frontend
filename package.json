@@ -1,0 +1,16 @@
+{
+  "name": "email-classifier-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "live-server --port=3000 --host=0.0.0.0 --proxy=/api:http://localhost:8000",
+    "build": "echo 'No build step needed for static site'",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.0",
+    "@fortawesome/fontawesome-free": "^6.4.0"
+  }
+}
