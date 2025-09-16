@@ -1,0 +1,217 @@
+📧 Email Classifier Frontend
+
+Uma interface web simples e elegante para classificação de emails usando inteligência artificial. Interface minimalista que se conecta perfeitamente com a API backend.
+🎨 Preview
+
+🚀 Funcionalidades
+
+    📝 Input Simples: Campo de texto para digitar emails diretamente
+
+    📁 Upload de Arquivos: Suporte a arquivos .txt e .pdf
+
+    ⚡ Processamento Rápido: Interface otimizada para velocidade
+
+    📱 Responsivo: Funciona em desktop e mobile
+
+    🎯 Resultados Claros: Visualização intuitiva dos resultados
+
+🛠️ Tecnologias Utilizadas
+
+    HTML5 - Estrutura semântica
+
+    CSS3 - Estilos modernos com Flexbox/Grid
+
+    JavaScript Vanilla - Funcionalidades sem frameworks
+
+    Bootstrap 5 - Componentes e responsividade
+
+    Font Awesome - Ícones profissionais
+
+📦 Estrutura de Arquivos
+text
+
+email-classifier-frontend/
+├── index.html          # Página principal
+├── styles/
+│   └── style.css      # Estilos customizados
+├── scripts/
+│   └── main.js        # Lógica JavaScript
+└── assets/
+    ├── icons/         # Ícones e imagens
+    └── favicon.ico    # Favicon
+
+🏃‍♂️ Como Usar
+Opção 1: Servidor Local Simples
+bash
+
+# Navegue até a pasta do frontend
+cd email-classifier-frontend
+
+# Python 3
+python -m http.server 3000
+
+# Python 2
+python -m SimpleHTTPServer 3000
+
+# PHP
+php -S localhost:3000
+
+# Node.js (se tiver installed)
+npx serve . -p 3000
+
+Opção 2: Abrir Direto no Navegador
+bash
+
+# Simplesmente abra o arquivo index.html no navegador
+# ⚠️ Nota: Pode haver restrições de CORS com esta abordagem
+
+Opção 3: Live Server (VSCode)
+
+    Instale a extensão "Live Server" no VSCode
+
+    Clique com botão direito no index.html
+
+    Selecione "Open with Live Server"
+
+🔌 Configuração da API
+
+Por padrão, o frontend aponta para http://localhost:8000. Para alterar:
+Método 1: Editar o Arquivo JavaScript
+javascript
+
+// No arquivo scripts/main.js, linha ~1
+const API_URL = 'http://seu-servidor:8000'; // Altere para sua URL
+
+Método 2: Usar Variável Global
+
+Adicione no <head> do HTML:
+html
+
+<script>
+    window.API_URL = 'http://seu-servidor:8000';
+</script>
+
+🎯 Como Testar
+1. Com Texto Direto
+
+    Digite um email na caixa de texto
+
+    Clique em "Classificar Email"
+
+    Aguarde o processamento
+
+    Veja os resultados
+
+2. Com Arquivo
+
+    Clique na aba "Arquivo"
+
+    Selecione um arquivo .txt ou .pdf
+
+    Clique em "Enviar e Classificar"
+
+    Aguarde o processamento
+
+Exemplos de Teste
+
+Email Produtivo:
+text
+
+Olá, estou com problemas para acessar o sistema financeiro. 
+Recebo erro 404 ao tentar fazer login. Preciso de ajuda urgente.
+
+Email Improdutivo:
+text
+
+Parabéns pelo excelente trabalho! 
+O atendimento foi maravilhoso e rápido. 
+Muito obrigado pela ajuda!
+
+📱 Responsividade
+
+A interface é totalmente responsiva:
+
+    Desktop: Layout com duas colunas
+
+    Tablet: Layout adaptativo
+
+    Mobile: Stack vertical single-column
+
+    📏 Breakpoints:
+
+        Mobile: < 768px
+
+        Tablet: 768px - 1024px
+
+        Desktop: > 1024px
+
+🎨 Personalização
+Cores Tema
+
+Edite no styles/style.css:
+css
+
+:root {
+  --primary-color: #0d6efd;
+  --success-color: #198754;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --text-color: #212529;
+  --bg-color: #ffffff;
+}
+
+Logo Personalizada
+
+Substitua no index.html:
+html
+
+<img src="assets/your-logo.png" alt="Seu Logo" width="120">
+
+🔧 Solução de Problemas
+Erro de CORS
+
+Se encontrar erros de CORS:
+javascript
+
+// No console do navegador, teste a conexão:
+fetch('http://localhost:8000/health')
+  .then(response => console.log('Conexão:', response.status))
+  .catch(error => console.error('Erro CORS:', error));
+
+Servidor Offline
+
+Verifique se o backend está rodando:
+bash
+
+curl http://localhost:8000/health
+
+Arquivos Não Carregando
+
+Certifique-se de que o servidor está servindo os arquivos estáticos corretamente.
+📊 Exemplo de Resposta da API
+json
+
+{
+  "category": "Produtivo",
+  "suggested_response": "Agradecemos seu contato. Nossa equipe técnica resolverá o problema em até 2 horas.",
+  "confidence": 0.92,
+  "processed_text": "problema acesso sistema erro login ajuda urgente",
+  "original_length": 150
+}
+
+🚀 Deploy em Produção
+Deploy Estático (Netlify/Vercel)
+
+    Faça build do projeto (se necessário)
+
+    Conecte o repositório
+
+    Configure a URL da API nas variáveis de ambiente
+
+Deploy Tradicional
+
+    Upload dos arquivos para seu servidor web
+
+    Configure o CORS no backend para seu domínio
+
+    Atualize a API_URL no JavaScript
