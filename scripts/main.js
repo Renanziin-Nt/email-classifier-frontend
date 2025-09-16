@@ -1,4 +1,4 @@
-const API_URL = '/api';  
+const API_URL = `https://web-production-f0a36.up.railway.app`;  
 
 
 let currentJobId = null;
